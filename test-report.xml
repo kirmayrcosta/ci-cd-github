@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\60003481\Documents\projetos\Estudo\nodejs-example\test\route.test.js">
+    <testCase name="[Router] Site Test Exports get with getAll" duration="3925"/>
+  </file>
+</testExecutions>
