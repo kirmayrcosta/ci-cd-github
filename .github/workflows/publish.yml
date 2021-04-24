@@ -5,7 +5,12 @@ on:
     types: [published]
 
 env:
-  AWS_REGION: us-east-1 
+  AWS_REGION: us-east-1
+  ECS_SERVICE: node-app-service
+  ECS_CLUSTER: fiap-ci-cd                 
+  ECS_TASK_DEFINITION: .aws/node-app-task-definition.json
+
+  CONTAINER_NAME: node-app
 
 jobs:
   push_to_registry:
@@ -14,6 +19,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -21,11 +27,28 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
+
       - name: Push to Docker Hub
+        id: build-image
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: kirmayr/node-app
           tag_with_ref: true
-      
+
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: kirmayr/node-app:latest
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
