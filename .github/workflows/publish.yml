@@ -36,6 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: kirmayr/node-app
           tag_with_ref: true
+          tags: kirmayr/node-app:latest
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
