@@ -47,7 +47,7 @@ jobs:
         id: build-image
         env:
           IMAGE_TAG: ${{ steps.docker_build.outputs.digest }}
-        run: echo "::set-output name=image::kirmayr/node-app@$IMAGE_TAG"
+        run: echo "::set-output name=image::kirmayr/node-app:latest"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
