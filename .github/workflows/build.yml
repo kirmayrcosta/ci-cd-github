@@ -1,7 +1,7 @@
 name: Build, Test and Publish
 on: [push]
 jobs:
-  check-bats-version:
+  build-test-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
