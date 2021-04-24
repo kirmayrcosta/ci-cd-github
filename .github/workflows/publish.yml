@@ -39,8 +39,8 @@ jobs:
       - name: Create Docker Repository Var
         id: build-image
         env:
-          IMAGE_TAG: ${{ github.sha }}
-        run: echo "::set-output name=image::kirmayr/node-app:$IMAGE_TAG"
+          IMAGE_TAG: ${{ steps.docker_build.outputs.digest }}
+        run: echo "::set-output name=image::kirmayr/node-app@$IMAGE_TAG"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
