@@ -36,15 +36,16 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: kirmayr/node-app
           tag_with_ref: true
-          tags: kirmayr/node-app:latest
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
+        env:
+          IMAGE_TAG: ${{ github.sha }}
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ env.ECS_TASK_DEFINITION }}
           container-name: ${{ env.CONTAINER_NAME }}
-          image: kirmayr/node-app:latest
+          image: kirmayr/node-app:$IMAGE_TAG
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
