@@ -1,7 +1,7 @@
 FROM node:10
 
 COPY package*.json ./
-COPY index.js ./index.js
+COPY index.ts ./index.ts
 
 RUN npm install
 
