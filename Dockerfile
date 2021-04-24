@@ -1,7 +1,6 @@
 FROM node:12
 
 COPY package*.json ./
-COPY package-lock.json ./package-lock.json
 COPY index.ts ./index.ts
 COPY route.ts ./route.ts
 COPY setup.ts ./setup.ts
