@@ -16,7 +16,7 @@ describe('[Router] Site Test', () => {
     test('Exports get with getAll', () => {
         require('../route')
         expect(mRes.json).toBeCalledWith({
-                     api: "API WORKS WITH GITHUB ACTIONS =)"
+                     api: "API WORKS WITH GITHUB ACTIONS =) Exemplo Pipeline"
         });
     })
 })
