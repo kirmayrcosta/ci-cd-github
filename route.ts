@@ -4,7 +4,7 @@ const Route = Router();
 
 Route.get("/",  ( req:Request, res: Response, next:NextFunction)=>{
         res.json({
-            api: "API WORKS WITH GITHUB ACTIONS =)"
+            api: "API WORKS WITH GITHUB ACTIONS =) Exemplo Pipeline"
         });
         return next()
     })
