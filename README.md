@@ -1,4 +1,5 @@
-# CI/CD Github Actios
+# CI/CD GitHub Actions
+
 Repositorio do trabalho final para a disciplina CI /CD do curso [DevOps Enginnering](https://www.fiap.com.br/mba/mba-em-devops-engineering-integration-architecture);
 
 ## Grupo
@@ -11,14 +12,14 @@ Repositorio do trabalho final para a disciplina CI /CD do curso [DevOps Enginner
 
 ## Descrição
 
-Exemplo de pipeline CI/CD de uma aplicação NodeJS + Express publicada num ambiente ECS da AWS.
+Exemplo de pipeline CI/CD usando GitHub Actions para automatizar os fluxos de buid e deploy de uma aplicação NodeJS + Express publicada num ambiente ECS da AWS.
 
 
 ## Arquitetura
 
 ![Arquitetura](images/pipeline.jpg)
 
-## Github Actions
+## GitHub Actions
 
 O Github actions é uma ferramenta gratuita disponivel no Github que nos permite automatizar diversos processos e fluxos, nesse exemplo iremos automatizar os fluxos de build, teste e deploy de uma aplicação NodeJS.
 
