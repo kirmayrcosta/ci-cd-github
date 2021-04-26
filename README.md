@@ -29,7 +29,7 @@ O Github actions é uma ferramenta gratuita disponivel no Github que nos permite
 * Comunidade
 * Marketplace
 
-### Constras (Dificuldades)
+### Contras (Dificuldades)
 
 * Plugin Docker (Digest da Imagem divergente do Docker Hub)
 
