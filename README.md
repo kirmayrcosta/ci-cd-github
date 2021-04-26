@@ -27,7 +27,7 @@ O Github actions é uma ferramenta gratuita disponivel no Github que nos permite
 * Estrutura YAML
 * Documentação Rica
 * Comunidade
-* Marktplace
+* Marketplace
 
 ### Constras (Dificuldades)
 
